@@ -7,7 +7,7 @@
     ],
     "responseOverrides": {
              "401": {
-               "redirect": "/.auth/login/aad",
+               "redirect": "/.auth/login/pingidentity",
                "statusCode": 302
              }
            },
@@ -20,6 +20,27 @@
              "clientSecretSettingName": "AADSecret"
            },"userDetailsClaim": "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name"
                  }
+            "customOpenIdConnectProviders":
+            {
+            "pingidentity":{
+            "registration": {
+            "clientIdSettingName": "MY_PROVIDER_CLIENT_ID",
+            "clientCredential": {
+              "clientSecretSettingName": "MY_PROVIDER_CLIENT_SECRET"
+            },
+            "openIdConnectConfiguration": {
+              "wellKnownOpenIdConfiguration": "https://auth.pingone.com/916eee4f-902b-401f-9868-937c7d49d69e/as/.well-known/openid-configuration"
+            }
+          },
+          "login": {
+            "nameClaimType": "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name",
+            "scopes": [],
+            "loginParameterNames": []
+          }
+        }
+            
+       }
+       }
        }
      }
    }
