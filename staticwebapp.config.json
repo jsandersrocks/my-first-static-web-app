@@ -11,19 +11,12 @@
                "statusCode": 302
              }
            },
-     "auth": {
-       "identityProviders": {
-         "azureActiveDirectory": {
-           "registration": {
-             "openIdIssuer": "https://login.microsoftonline.com/72f988bf-86f1-41af-91ab-2d7cd011db47", 
-             "clientIdSettingName": "AADClientID",
-             "clientSecretSettingName": "AADSecret"
-           },"userDetailsClaim": "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name"
-                 }
-            "customOpenIdConnectProviders":
-            {
-            "pingidentity":{
-            "registration": {
+     {
+  "auth": {
+    "identityProviders": {
+      "customOpenIdConnectProviders": {
+        "myProvider": {
+          "registration": {
             "clientIdSettingName": "MY_PROVIDER_CLIENT_ID",
             "clientCredential": {
               "clientSecretSettingName": "MY_PROVIDER_CLIENT_SECRET"
@@ -38,9 +31,8 @@
             "loginParameterNames": []
           }
         }
-            
-       }
-       }
-       }
-     }
+      }
+    }
+  }
+}
    }
